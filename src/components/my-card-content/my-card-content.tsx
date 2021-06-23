@@ -8,9 +8,9 @@ import { Component, Prop, h } from '@stencil/core';
 export class MyCardContent {
 
   /**
-   * The Title
+   * The Body
    */
-   @Prop() title: string;
+  @Prop() body: string;
 
   /**
    * The Subtitle
@@ -18,9 +18,9 @@ export class MyCardContent {
   @Prop() subTitle: string;
 
   /**
-    * The Body
+   * The Title
    */
-  @Prop() body: string;
+  @Prop() title: string;
 
   render() {
     return (
