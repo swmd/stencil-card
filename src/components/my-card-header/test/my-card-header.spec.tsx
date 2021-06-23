@@ -2,15 +2,18 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MyCardHeader } from '../my-card-header';
 
 describe('my-card-header', () => {
-  it('renders', async () => {
-    const page = await newSpecPage({
+  it('renders with values', async () => {
+    const imageUrl = 'https://picsum.photos/300/150';
+    const { root } = await newSpecPage({
       components: [MyCardHeader],
-      html: `<my-card-header></my-card-header>`,
+      html: `<my-card-header url="${imageUrl}"></my-card>`,
     });
-    expect(page.root).toEqualHtml(`
-      <my-card-header>
+    expect(root).toEqualHtml(`
+      <my-card-header url="${imageUrl}">
         <mock:shadow-root>
-          <slot></slot>
+          <div class="card-header">
+            <img src="${imageUrl}" alt="Avatar" />
+          </div>
         </mock:shadow-root>
       </my-card-header>
     `);
