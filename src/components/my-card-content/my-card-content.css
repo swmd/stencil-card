@@ -1,0 +1,13 @@
+.container {
+  padding: 2px 16px;
+}
+
+.subtitle {
+  color: #333333;
+  text-transform: uppercase;
+}
+
+.body {
+  color: #333333;
+  font-size: 1.3em;
+}
