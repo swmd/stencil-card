@@ -12,10 +12,6 @@ export namespace Components {
          */
         "body": string;
         /**
-          * Image URL
-         */
-        "image": string;
-        /**
           * The Subtitle
          */
         "subTitle": string;
@@ -23,6 +19,12 @@ export namespace Components {
           * The Title
          */
         "title": string;
+    }
+    interface MyCardHeader {
+        /**
+          * Image URL
+         */
+        "url": string;
     }
     interface MyComponent {
         /**
@@ -46,6 +48,12 @@ declare global {
         prototype: HTMLMyCardElement;
         new (): HTMLMyCardElement;
     };
+    interface HTMLMyCardHeaderElement extends Components.MyCardHeader, HTMLStencilElement {
+    }
+    var HTMLMyCardHeaderElement: {
+        prototype: HTMLMyCardHeaderElement;
+        new (): HTMLMyCardHeaderElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -54,6 +62,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-card": HTMLMyCardElement;
+        "my-card-header": HTMLMyCardHeaderElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -64,10 +73,6 @@ declare namespace LocalJSX {
          */
         "body"?: string;
         /**
-          * Image URL
-         */
-        "image"?: string;
-        /**
           * The Subtitle
          */
         "subTitle"?: string;
@@ -75,6 +80,12 @@ declare namespace LocalJSX {
           * The Title
          */
         "title"?: string;
+    }
+    interface MyCardHeader {
+        /**
+          * Image URL
+         */
+        "url"?: string;
     }
     interface MyComponent {
         /**
@@ -92,6 +103,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "my-card": MyCard;
+        "my-card-header": MyCardHeader;
         "my-component": MyComponent;
     }
 }
@@ -100,6 +112,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-card": LocalJSX.MyCard & JSXBase.HTMLAttributes<HTMLMyCardElement>;
+            "my-card-header": LocalJSX.MyCardHeader & JSXBase.HTMLAttributes<HTMLMyCardHeaderElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

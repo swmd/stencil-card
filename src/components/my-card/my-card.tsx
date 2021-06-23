@@ -6,10 +6,7 @@ import { Component, Prop, h } from '@stencil/core';
   shadow: true,
 })
 export class MyCard {
-  /**
-   * Image URL
-   */
-  @Prop() image: string;
+
 
   /**
    * The Title
@@ -29,7 +26,7 @@ export class MyCard {
   render() {
     return (
       <div class="card">
-        <img src={this.image} alt="Avatar" class="img-header" />
+        <slot></slot>
         <div class="container">
           <h4 class="subtitle">{this.subTitle}</h4>
           <h2>{this.title}</h2>
